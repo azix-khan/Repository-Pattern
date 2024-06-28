@@ -6,7 +6,7 @@ class UserProvider {
   Future<UserModel> getUsers() async {
     try {
       final response = await _dio.get("users?page=1");
-      return UserModel.fromJson(response.toString() as Map<String, dynamic>);
+      return UserModel.fromJson(response.data);
     } catch (e) {
       return Future.error(e.toString());
     }
