@@ -15,13 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Displaying Data from API using Flutter Bloc',
-        home: RepositoryProvider(
-          create: (context) => UserRepository(UserProvider()),
-          child: BlocProvider(
-            create: (context) => UserBloc(context.read<UserRepository>()),
-            child: const MyHomeScreen(),
-          ),
-        ));
+      debugShowCheckedModeBanner: false,
+      title: 'Displaying Data from API using Flutter Bloc',
+      home: RepositoryProvider(
+        create: (context) => UserRepository(UserProvider()),
+        child: BlocProvider(
+          create: (context) => UserBloc(context.read<UserRepository>()),
+          child: const MyHomeScreen(),
+        ),
+      ),
+    );
   }
 }
